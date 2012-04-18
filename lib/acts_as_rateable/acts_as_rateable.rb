@@ -46,7 +46,7 @@ module ActiveRecord
         #
 				def rate_it( score, user, free_text = "" )
 					return unless score
-					rate = Rate.find_or_create_by_score( score.to_i )
+					rate = Rate.find_or_create_by_score( score.to_f )
           raise "User must respond to 'id' in order to set the user ID!" unless user.respond_to? :id
           raise "User must respond to 'login' in order to set the rater name!" unless user.respond_to? :login
           rate.user_id = user.id
